@@ -1,0 +1,94 @@
+body {
+    background-image: url(/assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #101011;
+    height: 100%;
+}
+
+header {
+    /* background: #f5b335; */
+    height: 60px;
+    position: fixed;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    width: 100%;
+}
+
+.container {
+    /* margin-top: 40px; */
+}
+
+strong>a {
+    color: #e3b04b;
+    padding-bottom: 2rem;
+}
+
+section {
+    margin: 5rem auto ;
+}
+
+strong>i {
+    color: #ffad16;
+}
+
+hr {
+    border-bottom: 2px dotted #888888 ;
+    width: 100%;
+    margin: 5rem auto;
+    
+}
+
+ul {
+    list-style-type: none;
+}
+.intro {
+    color: #e3b04b;
+    text-align: right;
+    font-family: 'Kalam', cursive;
+    font-size: 3rem;
+}
+
+.text-y {
+    color: #e3b04b;
+}
+
+.text-ly {
+    color: #f1d6ab;
+}
+
+
+.btn {
+    text-decoration: none;
+}
+
+.progress {
+    width: 65%;
+    height: 10px;
+    vertical-align: middle;
+    margin: auto 0;
+}
+
+.progress-bar {
+    background-color: #e3b04b;
+}
+
+.lt {
+    color: #e3b04b;
+    margin-top: 2rem;
+}
+
+.nv-up {
+    top: -70px;
+}
+
+#profile {
+    height: 1011px;
+    padding-top: 7rem;
+}
+
+#footer {
+    background-color: #383838;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+}
