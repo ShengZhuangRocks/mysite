@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
     <title>Sheng's Site</title>
 </head>
 
@@ -46,43 +49,65 @@
     </header>
 
 
-    <div class="container">
-        <section id="profile">
+    <section id="profile">
+        <div class="container">
             <h2 class="intro">I am Sheng Zhuang</h2>
-            <h4 class="mb-5 text-ly">ABOUT ME</h4>
+            <h5 class="mb-0 text-right text-secondary">I am at Brisbane, QLD</h5>
+            <h5 class="mb-4 text-right text-secondary">I am searching for job</h5>
+            <div class="row">
+                <div class="col-xl-1 pencil">
 
-            <div class=" text-ly">
-                <p>A determined self-taught programmer.</p>
-                <!-- <p>I was always quite a hacker and passionate about new tech, I used to spend a lot of time
-                            writing
-                            macro and plugin to lift my work efficiency, using some markdown language like TiddlyWiki to
-                            take notes.</p> -->
-                <p>I started using Javascript, to create generative art as a hobby, 5 years ago,
-                    then I got around to Python for work efficiency with Revit API, simply love its simplicity and
-                    beautiful pythonic pattern.</p>
-                <p>Just like this, step by step, I was diving into the coding world, I realize that I have always wanted to be a programmer, but I
-                    just didn’t realize it until this year. I would love to commit the rest career to be a software
-                    developer.</p>
-                <p>I am a humble doer, I have always commited to my craft.</p>
-                <p>I am a good communicator, communicating to get job done, and communicating through my work.</p>
-                <p>I am a team player, the team delivers I deliver, the team fails I fail.</p>
+                </div>
+                <div class="col-12 col-xl-11">
+                    <h4 class="mb-5 text-ly">ABOUT ME</h4>
+
+                    <div class=" text-ly">
+                        <p>A determined self-taught programmer.</p>
+                        <!-- <p>I was always quite a hacker and passionate about new tech, I used to spend a lot of time
+                                writing
+                                macro and plugin to lift my work efficiency, using some markdown language like TiddlyWiki to
+                                take notes.</p> -->
+                        <p>I started using Javascript, to create generative art as a hobby, 5 years ago,
+                            then I got around to Python for work efficiency with Revit API, simply love its simplicity
+                            and
+                            beautiful pythonic pattern.</p>
+                        <p>Just like this, step by step, I was diving into the coding world, I realize that I have
+                            always
+                            wanted
+                            to be a programmer, but I
+                            just didn’t realize it until this year. I would love to commit the rest career to be a
+                            software
+                            developer.</p>
+                        <p>I am a humble doer, I have always commited to my craft.</p>
+                        <p>I am a good communicator, communicating to get job done, and communicating through my work.
+                        </p>
+                        <p>I am a team player, the team delivers I deliver, the team fails I fail.</p>
+                    </div>
+                </div>
             </div>
-        </section>
 
+        </div>
+    </section>
+
+    <div class="container">
         <hr id="projects">
+    </div>
 
-        <section>
+    <section>
+        <div class="container">
             <h4 class="text-ly mb-5 text-center">PROJECTS</h4>
             <div class="text-ly">
                 <div>
-                    <strong><i class="fab fa-github mr-2"></i><a href="#">ISSUE TRACKER</a></strong>
+                    <strong><i class="fab fa-github"></i><a target="_blank"
+                            href="https://github.com/ShengZhuangRocks/issueTracker">ISSUE TRACKER</a></strong>
                     <p>an issue-tracker|bug-tracker project that I wrote in Django. During the building process,
                         I used the app itself to keep track of all issues that I came across and all the
                         features that I want to implement.</p>
                     <p>Skills involved: Python, Django, Html, CSS, Bootstrap, Bash, Git</p>
                 </div>
                 <div>
-                    <strong><i class="fab fa-github mr-2"></i><a href="#">TETRIS</a></strong>
+                    <strong><i class="fab fa-github"></i><a target="_blank"
+                            href="https://github.com/ShengZhuangRocks/Tetris">TETRIS</a></strong>
                     <p>Classic arcade game that I wrote in Python, Pygame. Game logic is not too hard, so I
                         decided
                         to go a bit further, tried to apply Object-Oriented Programming (OOP) when coding to
@@ -92,14 +117,15 @@
                     <p>Skills involved: Python, Pygame, Bash, Git</p>
                 </div>
                 <div>
-                    <strong><i class="fab fa-github mr-2"></i><a href="#">COCKTAIL API</a></strong>
+                    <strong><i class="fab fa-github"></i><a target="_blank"
+                            href="https://github.com/ShengZhuangRocks/cocktailAPI">COCKTAIL API</a></strong>
                     <p>A small python program to talk to the public cocktail API, providing functions to fetch
                         data
                         from the API and parsing data fetched.</p>
                     <p>Skills involved: Python, Restful API, Bash</p>
                 </div>
                 <div>
-                    <strong><i class="fab fa-github mr-2"></i><a href="#">WEB SCRAPER</a></strong>
+                    <strong><i class="fab fa-github"></i><a target="_blank" href="#">WEB SCRAPER</a></strong>
                     <p>I needed to provide timesheet for invoicing fortnightly, when I was working as a
                         contractor
                         for a company, so I wrote this Python program to fetch time info from the company’s
@@ -108,25 +134,44 @@
                     <p>Skills involved: Python, Openpyxl, Selenium, Bash</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <div class="container">
         <hr id="articles">
+    </div>
 
-        <section>
+    <section>
+        <div class="container">
             <h4 class="text-ly  text-center">ARTICLES</h4>
             <div class="text-ly">
                 <div>
-                    <ul>
-                        <li>F-string formatting in Python3</li>
-                        <li>Add more articles</li>
+                    <ul class="pl-0">
+                        <li>
+                            <i class="fab fa-medium"></i>
+                            <a href="https://medium.com/shengpy/f-string-formatting-in-python3-492b6f5c5861"
+                                target="_blank">
+                                F-string formatting in Python3
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fab fa-medium"></i>
+                            <a href="https://medium.com/@shengzh9/python-logging-101-1d1a4241df92" target="_blank">
+                                Python logging 101
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <div class="container">
         <hr id="abilities">
+    </div>
 
-        <section>
+    <section class="bg-texture">
+        <div class="container">
             <h4 class="text-ly text-center">ABILITIES</h4>
             <p class="lt"><strong>SKILLS</strong></p>
             <div class="row text-ly">
@@ -228,7 +273,9 @@
                 </div>
             </div>
 
-            <hr>
+            <div class="container">
+                <hr>
+            </div>
 
             <p class="lt"><strong>Knowledges</strong></p>
             <div class="row text-ly">
@@ -310,7 +357,9 @@
                 </div>
             </div>
 
-            <hr>
+            <div class="container">
+                <hr>
+            </div>
 
             <p class="lt"><strong>TOOLS</strong></p>
             <div class="row text-ly">
@@ -411,27 +460,37 @@
 
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <div class="container">
         <hr>
-
-        <section id="education" class=" text-center">
-            <h4 class="text-ly">EDUCATION</h4>
-            <p class="text-ly">Bachelor degree of Architect</p>
-        </section>
     </div>
 
+    <section id="education" class=" text-center">
+        <div class="container">
+            <h4 class="text-ly">EDUCATION</h4>
+            <p class="text-ly">Bachelor degree of Architect</p>
+        </div>
+    </section>
 
-    <section id="footer" class="text-center">
+
+    <div id="footer" class="text-center">
         <div class="row pt-3">
+            <!-- <div class="col-sm-4">
+                <a href="https://www.linkedin.com/in/sheng-zhuang-65043a65/" target="_blank" class="btn text-ly"><i class="fab fa-linkedin fa-lg"></i></a>
+            </div> -->
             <div class="col-sm-4">
-                <a href="#" class="btn text-ly"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ShengZhuangRocks" target="_blank" class="btn text-ly"><i
+                        class="fab fa-github-square fa-lg"></i></a>
             </div>
             <div class="col-sm-4">
-                <a href="#" class="btn text-ly"><i class="fab fa-github-square"></i></a>
+                <a href="mailto:shengzh9@email.com" target="_blank" class="btn text-ly"><i
+                        class="fas fa-envelope fa-lg"></i></a>
             </div>
             <div class="col-sm-4">
-                <a href="#" class="btn text-ly"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://twitter.com/ZhuangSh" target="_blank" class="btn text-ly"><i
+                        class="fab fa-twitter-square fa-lg"></i></a>
             </div>
         </div>
         <p>
@@ -439,7 +498,7 @@
         </p>
         <p class="text-muted mt-3">© 2019 Sheng Zhuang</p>
         <p class="text-muted">Background image by Kelly Sikkema on Unsplash</p>
-    </section>
+    </div>
 
 
     <!-- bootstrap script -->
