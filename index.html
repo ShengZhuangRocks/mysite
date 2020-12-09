@@ -21,9 +21,15 @@
       crossorigin="anonymous"
     ></script>
     <!-- gsap animation -->
+    <!-- Issue: need to see in prod env, for how long to load -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
       integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"
+      integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw=="
       crossorigin="anonymous"
     ></script>
     <title>Sheng's Site</title>
@@ -197,20 +203,30 @@
           <div id="sk-moon" class="full-moon"></div>
           <div class="text-wraper">
             <h1>skills<span>.</span></h1>
-            <div class="text-cloud">
-              <p>
-                I love back-end technologies, it always fascinates me to know
-                the inner logic and patterns to make things happen.
-              </p>
-              <p>
-                I love front-end technologies, it is delightful that one can see
-                the final result and how user would interact with it.
-              </p>
-              <!-- <p>
+            <div class="text-cloud-container">
+              <div class="text-cloud">
+                <p>
+                  My skills are my assets, I am very serious at mastering them.
+                </p>
+                <p>
+                  My facourite ways to learn new technologies are through
+                  documentation, practice, and from my mistakes
+                </p>
+                <!-- <p>
+                  I love back-end technologies, it always fascinates me to know
+                  the inner logic and patterns to make things happen.
+                </p>
+                <p>
+                  I love front-end technologies, it is delightful that one can
+                  see the final result and how user would interact with it.
+                </p> -->
+                <!-- <p>
                 To learn a new technology, normally I like to check out
                 tutorials from youtube to get a whole picture quickly, then read
                 the document the hard way
               </p> -->
+              </div>
+              <div class="cloud-shadow"></div>
             </div>
           </div>
           <div class="clouds">
@@ -251,9 +267,9 @@
               </div>
             </div>
             <div class="cloud" id="python">
-              <p>Python</p>
-              <div class="progress" style="width: 70%">
-                <p>70%</p>
+              <p>AWS</p>
+              <div class="progress" style="width: 50%">
+                <p>50%</p>
               </div>
             </div>
           </div>

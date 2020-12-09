@@ -1,25 +1,22 @@
-const introScroll = gsap.timeline({ paused: true }).to(".corners>div>*", {
-  width: "70px",
-  height: "70px",
-  border: "solid white 3px",
-  duration: 2.5,
-  ease: "expo.inOut",
-});
+gsap.registerPlugin(ScrollTrigger);
 
+/**
+ *intro page animation after scroll
+ */
 // Question: how to change this to effect in different media??
-const nameOut = gsap
-  .timeline({ paused: true })
+const introOnScroll = gsap
+  .timeline()
   .to(".name", {
     x: "27vw",
-    duration: 2.5,
-    ease: "expo.inOut",
+    duration: 1.5,
+    ease: Power4.In,
   })
   .to(
     ".name h3",
     {
       opacity: 0,
-      duration: 2.5,
-      ease: "expo.inOut",
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -28,11 +25,12 @@ const nameOut = gsap
     {
       x: "24vw",
       y: "12vh",
-      duration: 5,
-      ease: "power1.inOut",
+      duration: 3,
+      ease: Power4.In,
     },
-    "<"
+    "-=1.5"
   )
+  // TODO: add split text, stagger enter effect
   .to(
     ".word",
     {
@@ -40,16 +38,114 @@ const nameOut = gsap
       duration: 2.5,
       ease: "expo.inOut",
     },
-    "-=4"
+    "<"
   );
 
-const cloudTL = gsap
-  .timeline({ paused: true })
+// scroll trigger need to put after timeline
+ScrollTrigger.create({
+  animation: introOnScroll,
+  // markers: true,
+  trigger: "#intro",
+  start: "200px 10%",
+  end: "200px",
+  toggleActions: "play none none none",
+});
+/////////////////////////////
+
+/**
+ * intro parellax effect
+ */
+gsap.to("#intro .name", {
+  y: -600,
+  scrollTrigger: {
+    // id: "intro-parallax",
+    trigger: "#passions",
+    scrub: true,
+    start: "top bottom",
+  },
+});
+
+gsap.to("#intro .word", {
+  y: -750,
+  scrollTrigger: {
+    trigger: "#passions",
+    scrub: true,
+    start: "top bottom",
+  },
+});
+
+// Issue: animation of moon is jumpy
+// gsap.to("#intro .moon", {
+//   y: -500,
+//   scrollTrigger: {
+//     trigger: "#passions",
+//     scrub: true,
+//     start: "top bottom",
+//   },
+// });
+
+/////////////////////////////
+
+/**
+ * passion bullet point
+ * .bullet
+ */
+// const bullets = gsap.utils.toArray(".bullet");
+gsap.from(".bullet", {
+  duration: 1,
+  y: 150,
+  ease: Power4.In,
+  stagger: 0.1,
+  scrollTrigger: {
+    markers: true,
+    trigger: "#passions",
+    start: "top 15%",
+    toggleActions: "play none none none",
+  },
+});
+
+////////////////////////////
+
+/**
+ * skill progress bar animation
+ */
+gsap.from(".text-cloud", {
+  x: "-60vw",
+  duration: 2,
+  ease: Power4.InOut,
+  scrollTrigger: {
+    // markers: true,
+    trigger: ".text-cloud",
+    start: "top 70%",
+  },
+});
+gsap.from(".cloud-shadow", {
+  x: "-60vw",
+  delay: 0.5,
+  duration: 3,
+  ease: Power4.InOut,
+  scrollTrigger: {
+    // markers: true,
+    trigger: ".text-cloud",
+    start: "top 70%",
+  },
+});
+
+const cloudShapeTL = gsap
+  .timeline({
+    scrollTrigger: {
+      // markers: true,
+      trigger: "#skills",
+      start: "300 30%",
+      toggleActions: "play none none none",
+    },
+  })
   .from("#html", {
     x: "-60vw",
     y: "10vh",
     scale: 2,
-    duration: 3,
+    duration: 2,
+    ease: Power4.In,
   })
   .from(
     "#css",
@@ -57,7 +153,8 @@ const cloudTL = gsap
       x: "40vw",
       y: "5vh",
       scale: 0.7,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -67,7 +164,8 @@ const cloudTL = gsap
       x: "-50vw",
       y: "-5vh",
       scale: 1,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -77,7 +175,8 @@ const cloudTL = gsap
       x: "15vw",
       y: "10vh",
       scale: 1,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -87,7 +186,8 @@ const cloudTL = gsap
       x: "-40vw",
       y: "5vh",
       scale: 0.7,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -97,7 +197,8 @@ const cloudTL = gsap
       x: "-20vw",
       y: "5vh",
       scale: 1.2,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   )
@@ -107,49 +208,42 @@ const cloudTL = gsap
       x: "30vw",
       y: "5vh",
       scale: 0.9,
-      duration: 3,
+      duration: 2,
+      ease: Power4.In,
     },
     "<"
   );
 
 const cloudTextTL = gsap
-  .timeline({ paused: true })
-  .from(".cloud p", { opacity: 0, delay: 3, duration: 0.1 });
+  .timeline({
+    scrollTrigger: {
+      // markers: true,
+      trigger: "#skills",
+      start: "300 30%",
+      toggleActions: "play none none none",
+    },
+  })
+  .from(".cloud p", { opacity: 0, delay: 2, duration: 0.1 });
 
-// const navbarTl = gasp
-//   .timeline({ paused: true })
-//   .to(".nav-bar", { duration: 0.1, backgroundColor: "#ffffff", ease: "none" });
+////////////////////////////
 
-$(document).ready(() => {
-  history.scrollRestoration = "auto";
-  const onScroll = () => {
-    const htmlToTop = document.querySelector("#html").getBoundingClientRect()
-      .top;
-    let scrollAmount = $(window).scrollTop();
-    // let smallScreenHeight = 1.5 * document.clientHeight;
-    // animation of intro
-    if (scrollAmount > 30) {
-      introScroll.play();
-      nameOut.play();
-    } else if (scrollAmount <= 30) {
-      introScroll.reverse();
-      nameOut.reverse();
-    }
-    // animation of skill clouds
-    if (htmlToTop < 300) {
-      cloudTL.play();
-      cloudTextTL.play();
-    } else if (htmlToTop > 600) {
-      cloudTL.reverse();
-      cloudTextTL.reverse();
-    }
-    console.log(htmlToTop);
-    // nav-bar
-    // if (htmlToTop > smallScreenHeight) {
-    //   navbarTl.play();
-    // } else {
-    //   navbarTl.reverse();
-    // }
-  };
-  gsap.ticker.add(onScroll);
+/**
+ * porjects animation
+ */
+const projects = gsap.utils.toArray(".project-wraper");
+// console.log(projects);
+projects.forEach((el, idx) => {
+  gsap.to(el, {
+    x: idx % 2 === 0 ? 400 : -400,
+    opacity: 0,
+    scrollTrigger: {
+      // markers: true,
+      id: idx,
+      scrub: true,
+      trigger: el,
+      start: "top 10%",
+    },
+  });
 });
+
+////////////////////////////
