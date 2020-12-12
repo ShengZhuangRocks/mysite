@@ -3,87 +3,173 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  *intro page animation after scroll
  */
-// Question: how to change this to effect in different media??
-const introOnScroll = gsap
-  .timeline()
-  .to(".name", {
-    x: "27vw",
-    duration: 1.5,
-    ease: Power4.In,
-  })
-  .to(
-    ".name h3",
-    {
+// on desktop
+const introScrollOnPC = () =>
+  gsap
+    .timeline({
+      scrollTrigger: {
+        // markers: true,
+        trigger: "#intro",
+        start: "30px top",
+        end: "30px",
+        toggleActions: "play none none none",
+      },
+    })
+    .to(".name", {
+      x: "27vw",
+      duration: 1.5,
+      ease: Power4.In,
+    })
+    .to(
+      ".name h3",
+      {
+        opacity: 0,
+        duration: 2,
+        ease: Power4.In,
+      },
+      "<"
+    )
+    .to(
+      ".moon-container",
+      {
+        x: "24vw",
+        y: "12vh",
+        duration: 3,
+        ease: Power4.In,
+      },
+      "-=1.5"
+    )
+    .to(
+      ".word",
+      {
+        opacity: 1,
+        duration: 2.5,
+        ease: "expo.inOut",
+      },
+      "<"
+    );
+
+// on mobile
+// Question: ()=>() is ok but not ()=>{}
+const introScrollOnMobile = () =>
+  gsap
+    .timeline({
+      scrollTrigger: {
+        // markers: true,
+        trigger: "#intro",
+        start: "30px top",
+        end: "bottom 90%",
+        scrub: 0.5,
+        toggleActions: "play none none none",
+      },
+    })
+    .to(".name h3", {
       opacity: 0,
-      duration: 2,
-      ease: Power4.In,
-    },
-    "<"
-  )
-  .to(
-    ".moon",
-    {
-      x: "24vw",
-      y: "12vh",
-      duration: 3,
-      ease: Power4.In,
-    },
-    "-=1.5"
-  )
-  // TODO: add split text, stagger enter effect
-  .to(
-    ".word",
-    {
-      opacity: 1,
-      duration: 2.5,
-      ease: "expo.inOut",
-    },
-    "<"
-  );
+    })
+    .to(
+      ".name",
+      {
+        y: "35vh",
+      },
+      "<"
+    )
+    .to(
+      ".moon-container",
+      {
+        x: "120vw",
+        y: "40vh",
+      },
+      "<"
+    )
+    .to(
+      ".word",
+      {
+        opacity: 1,
+      },
+      "<"
+    );
+
+const introParallax = () =>
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#passions",
+        scrub: true,
+        start: "top bottom",
+      },
+    })
+    .to("#intro .name", {
+      y: -600,
+    })
+    .to(
+      "#intro .word",
+      {
+        y: -750,
+      },
+      "<"
+    )
+    .to(
+      "#intro .moon",
+      {
+        y: -500,
+      },
+      "<"
+    );
+
+// how scroll down pointer on small screen
+const hideScrollOnSS = () =>
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#intro",
+        start: "bottom bottom",
+        end: "+=300px",
+        scrub: true,
+      },
+    })
+    .to(".scroll-down", {
+      opacity: 0,
+    });
+
+// how scroll down pointer on big screen
+const hideScrollOnBS = () =>
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "footer",
+        start: "-300px bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    })
+    .to(".scroll-down", {
+      opacity: 0,
+    });
+
+// hide toTop pointer on intro page
+gsap.set(".to-top", { opacity: 0 });
+gsap.to(".to-top", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: "#passions",
+    start: "top bottom",
+    end: "+=600px",
+    scrub: 1,
+  },
+});
 
 // scroll trigger need to put after timeline
-ScrollTrigger.create({
-  animation: introOnScroll,
-  // markers: true,
-  trigger: "#intro",
-  start: "200px 10%",
-  end: "200px",
-  toggleActions: "play none none none",
-});
-/////////////////////////////
-
-/**
- * intro parellax effect
- */
-gsap.to("#intro .name", {
-  y: -600,
-  scrollTrigger: {
-    // id: "intro-parallax",
-    trigger: "#passions",
-    scrub: true,
-    start: "top bottom",
+ScrollTrigger.matchMedia({
+  "(min-width: 769px)": () => {
+    introScrollOnPC();
+    introParallax();
+    hideScrollOnBS();
+  },
+  "(max-width: 768px)": () => {
+    introScrollOnMobile();
+    hideScrollOnSS();
   },
 });
-
-gsap.to("#intro .word", {
-  y: -750,
-  scrollTrigger: {
-    trigger: "#passions",
-    scrub: true,
-    start: "top bottom",
-  },
-});
-
-// Issue: animation of moon is jumpy
-// gsap.to("#intro .moon", {
-//   y: -500,
-//   scrollTrigger: {
-//     trigger: "#passions",
-//     scrub: true,
-//     start: "top bottom",
-//   },
-// });
-
 /////////////////////////////
 
 /**
@@ -97,7 +183,7 @@ gsap.from(".bullet", {
   ease: Power4.In,
   stagger: 0.1,
   scrollTrigger: {
-    markers: true,
+    // markers: true,
     trigger: "#passions",
     start: "top 15%",
     toggleActions: "play none none none",
@@ -111,6 +197,7 @@ gsap.from(".bullet", {
  */
 gsap.from(".text-cloud", {
   x: "-60vw",
+  y: 100,
   duration: 2,
   ease: Power4.InOut,
   scrollTrigger: {
@@ -121,8 +208,9 @@ gsap.from(".text-cloud", {
 });
 gsap.from(".cloud-shadow", {
   x: "-60vw",
-  delay: 0.5,
-  duration: 3,
+  y: 60,
+  delay: 0.2,
+  duration: 2.4,
   ease: Power4.InOut,
   scrollTrigger: {
     // markers: true,
@@ -233,17 +321,51 @@ const cloudTextTL = gsap
 const projects = gsap.utils.toArray(".project-wraper");
 // console.log(projects);
 projects.forEach((el, idx) => {
-  gsap.to(el, {
-    x: idx % 2 === 0 ? 400 : -400,
-    opacity: 0,
-    scrollTrigger: {
-      // markers: true,
-      id: idx,
-      scrub: true,
-      trigger: el,
-      start: "top 10%",
+  ScrollTrigger.matchMedia({
+    "(min-width: 640px)": () => {
+      gsap.to(el, {
+        x: idx % 2 === 0 ? 400 : -400,
+        opacity: 0,
+        scrollTrigger: {
+          // markers: true,
+          id: idx,
+          scrub: true,
+          trigger: el,
+          start: "0px top",
+        },
+      });
+    },
+    "(max-width: 639px)": () => {
+      gsap.to(el, {
+        x: idx % 2 === 0 ? 400 : -400,
+        opacity: 0,
+        scrollTrigger: {
+          // markers: true,
+          id: idx,
+          scrub: true,
+          trigger: el,
+          start: "300px top",
+        },
+      });
     },
   });
 });
 
 ////////////////////////////
+
+/**
+ * hide navbar on small screen
+ */
+const screenWidth = $(window).width();
+if (screenWidth <= 768) {
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementsByClassName("nav-bar")[0].style.top = "0";
+    } else {
+      document.getElementsByClassName("nav-bar")[0].style.top = "-40px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+}
