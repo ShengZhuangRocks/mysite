@@ -1,9 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
-
-/**
- *intro page animation after scroll
- */
-// on desktop
+// intro page animation on desktop
 const introScrollOnPC = () =>
   gsap
     .timeline({
@@ -49,8 +44,7 @@ const introScrollOnPC = () =>
       "<"
     );
 
-// on mobile
-// Question: ()=>() is ok but not ()=>{}
+// intro page animation on mobile
 const introScrollOnMobile = () =>
   gsap
     .timeline({
@@ -89,6 +83,7 @@ const introScrollOnMobile = () =>
       "<"
     );
 
+// intro page parallax fade out effect
 const introParallax = () =>
   gsap
     .timeline({
@@ -116,7 +111,7 @@ const introParallax = () =>
       "<"
     );
 
-// how scroll down pointer on small screen
+// hide scroll down pointer on small screen
 const hideScrollOnSS = () =>
   gsap
     .timeline({
@@ -131,7 +126,7 @@ const hideScrollOnSS = () =>
       opacity: 0,
     });
 
-// how scroll down pointer on big screen
+// hide scroll down pointer on big screen
 const hideScrollOnBS = () =>
   gsap
     .timeline({
@@ -158,25 +153,42 @@ gsap.to(".to-top", {
   },
 });
 
-// scroll trigger need to put after timeline
+// corner deco frame animations
+const corners = () => {
+  gsap.set(".corners>div>*", {
+    width: "calc(100% - 80px)",
+    height: "calc(100% - 80px)",
+  });
+  gsap.to(".corners>div>*", {
+    width: 70,
+    height: 70,
+    duration: 2,
+    ease: Power4.InOut,
+    scrollTrigger: {
+      trigger: "#intro",
+      start: "30px top",
+      end: "30px",
+      toggleActions: "play none none none",
+    },
+  });
+};
+// execute animations per media size
 ScrollTrigger.matchMedia({
   "(min-width: 769px)": () => {
     introScrollOnPC();
     introParallax();
     hideScrollOnBS();
+    corners();
   },
   "(max-width: 768px)": () => {
     introScrollOnMobile();
     hideScrollOnSS();
   },
 });
-/////////////////////////////
 
 /**
- * passion bullet point
- * .bullet
+ * passion bullet points stagger in effect
  */
-// const bullets = gsap.utils.toArray(".bullet");
 gsap.from(".bullet", {
   duration: 1,
   y: 150,
@@ -189,8 +201,6 @@ gsap.from(".bullet", {
     toggleActions: "play none none none",
   },
 });
-
-////////////////////////////
 
 /**
  * skill progress bar animation
@@ -313,13 +323,10 @@ const cloudTextTL = gsap
   })
   .from(".cloud p", { opacity: 0, delay: 2, duration: 0.1 });
 
-////////////////////////////
-
 /**
- * porjects animation
+ * porject cards fade out animations
  */
 const projects = gsap.utils.toArray(".project-wraper");
-// console.log(projects);
 projects.forEach((el, idx) => {
   ScrollTrigger.matchMedia({
     "(min-width: 640px)": () => {
@@ -351,10 +358,8 @@ projects.forEach((el, idx) => {
   });
 });
 
-////////////////////////////
-
 /**
- * hide navbar on small screen
+ * toggle navbar on small screen
  */
 const screenWidth = $(window).width();
 if (screenWidth <= 768) {

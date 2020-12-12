@@ -41,7 +41,6 @@ p {
   font-family: "Raleway", sans-serif;
 }
 
-/*  */
 header {
   height: 100vh;
   position: absolute;
@@ -55,7 +54,6 @@ header {
   padding-bottom: 80px;
 }
 
-/* global padding */
 .padding {
   padding: 20vh 20vw 8vh 20vw;
 }
@@ -95,13 +93,13 @@ header {
 
 /* corner decos */
 .corners > div > * {
-  /* width: calc(100% - 100px);
-  height: calc(100% - 100px); */
+  /* width: calc(100% - 80px);
+  height: calc(100% - 80px); */
   width: 70px;
   height: 70px;
   position: fixed;
   z-index: 100;
-  border: solid 3px white;
+  border: solid 2px white;
 }
 /* top left corner */
 .corners .tl > * {
@@ -183,7 +181,6 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: #fcbf49;
-  /*  */
   position: fixed;
   top: 0;
   left: 0;
@@ -199,7 +196,6 @@ header {
   position: absolute;
   top: 40vh;
   left: 35vw;
-  /* transform: translate(-50%, -50%); */
   z-index: 200;
 }
 
@@ -215,16 +211,11 @@ header {
 
 #intro .word {
   opacity: 0;
-  /*  */
   position: fixed;
   z-index: 100;
   left: 12%;
   bottom: 16%;
 }
-
-/* .word span {
-  color: white;
-} */
 
 .word p {
   color: black;
@@ -257,7 +248,6 @@ header {
   background-color: #ffd684;
 }
 
-/* svg text: name */
 .name-text {
   height: 120px;
   width: 320px;
@@ -290,7 +280,6 @@ section.shadow {
   background-color: #f8f8f8;
   position: relative;
   z-index: 5;
-  /* padding-bottom: 10vh; */
   min-height: 100vh;
   overflow: hidden;
 }
@@ -311,7 +300,6 @@ section.shadow {
   margin-bottom: 0.5rem;
   position: relative;
   padding-left: 1.5rem;
-  /* left: -1.5rem; */
   font-weight: 700;
   font-size: 1rem;
   color: #003049;
@@ -341,7 +329,6 @@ section.shadow {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .bullet + .bullet {
@@ -393,7 +380,6 @@ section.shadow {
 .bullet-des h3 {
   color: #e26f9b;
   font-family: "Tillana", cursive;
-  /* font-family: "Satisfy", cursive; */
   text-decoration: underline;
 }
 
@@ -538,7 +524,6 @@ section.shadow {
   padding: 20px 40px;
   border-radius: 90px;
   position: relative;
-  /* left: -40px; */
 }
 
 .cloud-shadow {
@@ -580,7 +565,6 @@ section.shadow {
 
 .cloud > p {
   line-height: 30px;
-  /* color: white; */
 }
 
 .progress {
@@ -598,9 +582,9 @@ section.shadow {
   line-height: 36px;
 }
 
-/* 
-the history
-*/
+/* ============
+  history section
+===============*/
 #history {
   background-color: #f8f8f8;
   position: relative;
@@ -636,7 +620,9 @@ the history
   border-radius: 10%;
 }
 
-/* footer */
+/* ============
+  footer
+===============*/
 footer {
   height: 15vh;
   background-color: #ffffff;
@@ -649,8 +635,9 @@ footer p {
   line-height: 100px;
 }
 
-/* scroll down arrow */
-/* TODO: need to hide arrow when go to the bottom in js*/
+/* ============
+  scroll down & toTop pointer
+===============*/
 .arrow {
   position: relative;
   z-index: 105;
@@ -723,7 +710,9 @@ footer p {
   }
 }
 
-/* nav */
+/* ============
+  nav bar on big screen
+===============*/
 .nav-bar {
   position: fixed;
   z-index: 105;
@@ -755,9 +744,9 @@ footer p {
   background-color: black;
 }
 
-/* 
-social media bar
-*/
+/* ============
+  social media bar on big screen
+===============*/
 .social-media-bar {
   position: fixed;
   top: 50%;
@@ -776,9 +765,6 @@ social media bar
 }
 
 @media only screen and (max-width: 1080px) {
-  /* ==========
-  layout 
-  =============*/
   .padding {
     padding-top: 15vh;
   }
@@ -792,10 +778,6 @@ social media bar
     width: 32%;
     margin: 0 40px 20px 20px;
   }
-  /* 
-  .bullet:nth-child(3) {
-    margin-left: 40px;
-  } */
 
   /* project card */
   .project-wraper {
@@ -851,8 +833,6 @@ social media bar
     line-height: 40px;
   }
 
-  /* header */
-
   /* intro */
   #intro {
     position: relative;
@@ -863,7 +843,6 @@ social media bar
     position: absolute;
     top: 40vh;
     left: 12%;
-    /* transform: translate(-50%, -50%); */
     z-index: 200;
   }
 
@@ -911,7 +890,7 @@ social media bar
     transform: translate(0, -10px);
   }
 
-  /* shadow */
+  /* disable shadow section on mobile */
   section.shadow {
     display: none;
   }
@@ -921,9 +900,8 @@ social media bar
     margin-bottom: 50px;
   }
 
-  /* social medias */
+  /* social medias put back to footer */
   .social-media-bar {
-    /* width: 100%; */
     position: relative;
     top: 0;
     right: 0;
@@ -955,6 +933,34 @@ social media bar
   }
 
   p {
+    font-size: 11pt;
+  }
+
+  .nav-bar ul {
+    position: relative;
+    left: 12vw;
+    display: flex;
+  }
+
+  .nav-bar li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+  }
+
+  .nav-s::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #e26f9b;
+    top: 50%;
+    left: -10px;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .nav-s {
     font-size: 11pt;
   }
 

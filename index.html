@@ -37,6 +37,9 @@
 
   <body>
     <header>
+      <!-- 
+        white frame on big screen, hidden on mobile
+       -->
       <div class="borders">
         <!-- four sides -->
         <div class="border-top"></div>
@@ -44,6 +47,9 @@
         <div class="border-left"></div>
         <div class="border-right"></div>
       </div>
+      <!-- 
+        corner deco on big screen, hidden on mobile
+       -->
       <div class="corners">
         <!-- four corner patterns -->
         <div class="tl">
@@ -67,14 +73,18 @@
           <div class="r3"></div>
         </div>
       </div>
+      <!-- nav bar -->
       <div class="nav-bar">
         <ul>
           <li><a href="#">SZ</a></li>
-          <li><a href="#passions">passions</a></li>
-          <li><a href="#skills">skills</a></li>
-          <li><a href="#projects">projects</a></li>
+          <li><a class="nav-s" href="#passions">passions</a></li>
+          <li><a class="nav-s" href="#skills">skills</a></li>
+          <li><a class="nav-s" href="#projects">projects</a></li>
         </ul>
       </div>
+      <!-- 
+        scroll down pointer and toTop pointer
+       -->
       <div class="arrow">
         <div class="scroll-down">
           <p>Scroll</p>
@@ -112,15 +122,16 @@
     </header>
 
     <div class="page-container">
+      <!-- 
+        front page intro
+       -->
       <section id="intro">
         <div class="padding">
           <div class="name">
             <h3>I am</h3>
             <svg class="name-text">
               <text x="0" y="60">SHENG</text>
-              <!-- <text x="47" y="60">HENG</text> -->
               <text x="0" y="115">ZHUANG</text>
-              <!-- <text x="47" y="115">HUANG</text> -->
               <text x="300" y="115" class="red-dot">.</text>
             </svg>
           </div>
@@ -128,7 +139,6 @@
         <div class="word">
           <span style="font-family: 'Satisfy', cursive">I am </span>
           <p class="position">a Full-Stack Web Developer</p>
-          <!-- <p>in Brisbane, QLD</p> -->
           <div>
             <p>building intuitive, responsive,</p>
             <p>fast and dynamic web app</p>
@@ -137,9 +147,13 @@
         </div>
         <div class="moon-container"><div class="moon"></div></div>
       </section>
-
+      <!-- 
+        shadow section, invisible, just to add some scroll buffer for intro
+       -->
       <section class="shadow"></section>
-
+      <!-- 
+        about passions 
+      -->
       <section id="passions">
         <div class="padding">
           <div id="pa-moon" class="full-moon"></div>
@@ -198,7 +212,9 @@
           </div>
         </div>
       </section>
-
+      <!-- 
+        about skills
+       -->
       <section id="skills">
         <div class="padding">
           <div id="sk-moon" class="full-moon"></div>
@@ -217,6 +233,7 @@
               <div class="cloud-shadow"></div>
             </div>
           </div>
+          <!-- skill progress bars -->
           <div class="clouds">
             <div class="cloud" id="html">
               <p>HTML</p>
@@ -263,7 +280,9 @@
           </div>
         </div>
       </section>
-
+      <!-- 
+        about projects
+       -->
       <section id="projects">
         <div class="padding">
           <div id="p-moon" class="full-moon"></div>
@@ -275,7 +294,9 @@
             </p>
             <p style="float: right">– Winston Churchill</p>
           </div>
+          <!-- project cards -->
           <div class="projects-wraper">
+            <!-- p1 -->
             <div class="project-wraper">
               <div class="project-image-container">
                 <img
@@ -321,6 +342,7 @@
                 </div>
               </div>
             </div>
+            <!-- p2 -->
             <div class="project-wraper">
               <div class="project-image-container">
                 <img
@@ -361,6 +383,7 @@
                 </div>
               </div>
             </div>
+            <!-- p3 -->
             <div class="project-wraper">
               <div class="project-image-container">
                 <img
@@ -401,7 +424,9 @@
           </div>
         </div>
       </section>
-
+      <!-- 
+        about my past
+       -->
       <section id="history">
         <div class="padding" style="padding-bottom: 20vh">
           <div id="hi-moon" class="full-moon"></div>
@@ -420,6 +445,7 @@
               <div class="stack">Accountability</div>
             </div>
           </div>
+          <!-- photos -->
           <ul class="ap-wraper">
             <li>
               <img src="assets/_AN_9863.jpg" alt="" />
@@ -434,13 +460,30 @@
         </div>
       </section>
     </div>
+    <!-- footer -->
     <footer>
       <div class="social-media-bar">
         <ul>
-          <li><i class="fab fa-github-square"></i></li>
-          <li><i class="fab fa-linkedin"></i></li>
-          <li><i class="fab fa-twitter-square"></i></li>
-          <li><i class="fab fa-stack-overflow"></i></li>
+          <li>
+            <a href="https://github.com/ShengZhuangRocks/"
+              ><i class="fab fa-github-square"></i
+            ></a>
+          </li>
+          <li>
+            <a href="www.linkedin.com/in/shengzhuang"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/ZhuangSh"
+              ><i class="fab fa-twitter-square"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://stackoverflow.com/users/12297125/sheng-zhuang"
+              ><i class="fab fa-stack-overflow"></i
+            ></a>
+          </li>
         </ul>
       </div>
       <p>Sheng Zhuang © 2020-2021</p>
